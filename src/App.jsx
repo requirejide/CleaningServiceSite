@@ -37,7 +37,7 @@ function App() {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className=" h-[95vh] md:h-[100vh] lg:h-[95vh]  transition-all duration-200  "
+        className=" h-[95vh] md:h-[80vh] lg:h-[95vh]  transition-all duration-200  "
       >
         <Navbar />
 
