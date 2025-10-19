@@ -1,6 +1,7 @@
 import { CiCircleChevLeft } from "react-icons/ci";
 import { CiCircleChevRight } from "react-icons/ci";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 motion;
 function Hero({ hero_words, wordIndex, operateNextIndex }) {
   return (
@@ -76,9 +77,11 @@ function RedButton({ hero_words, wordIndex }) {
     <>
       {hero_words[wordIndex].btn.map((val, index) => (
         <motion.div key={index} className="">
-          <button className="bg-[#EE413D] text-white cursor-pointer rounded-full px-10 py-4 active:scale-90 active:opacity-70 transition-transform duration-150">
-            {val}
-          </button>
+          <Link to={val === "Send an Enquiry" && "/enquiry"}>
+            <button className="bg-[#EE413D] text-white cursor-pointer rounded-full px-10 py-4 active:scale-90 active:opacity-70 transition-transform duration-150">
+              {val}
+            </button>
+          </Link>
         </motion.div>
       ))}
     </>

@@ -2,6 +2,7 @@ import { list } from "../../utils/navlist";
 import whiteLogo from "../../assets/white_logo.svg";
 import { RxHamburgerMenu } from "react-icons/rx";
 import useToogle from "../../store/toogle";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const setOpenTrue = useToogle((t) => t.setOpenTrue);
@@ -10,21 +11,25 @@ function Navbar() {
     <>
       <div className="flex flex-col justify-center lg:flex-row items-center">
         <div className=" py-5 px-4 md:px-20 lg:px-40 flex text-white    justify-center lg:justify-between w-[100%]  relative">
-          <ul className="hidden lg:flex gap-10 text-lg  items-center">
+          <ul className="hidden lg:flex gap-10 text-base  items-center">
             {list.slice(0, 3).map((value) => (
-              <li key={value.id} className="cursor-pointer">
-                {value.title}
-              </li>
+              <Link to={value.link}>
+                <li key={value.id} className="cursor-pointer ">
+                  {value.title}
+                </li>
+              </Link>
             ))}
           </ul>
           <div className="w-[200px] lg:w-[300px] h-auto sm:mb-5 lg:mb-0">
             <img className="img" src={whiteLogo} alt="" />
           </div>
-          <ul className="hidden lg:flex gap-10 text-lg items-center">
+          <ul className="hidden lg:flex gap-10 text-base items-center">
             {list.slice(3).map((value) => (
-              <li key={value.id} className="cursor-pointer">
-                {value.title}
-              </li>
+              <Link to={value.link}>
+                <li key={value.id} className="cursor-pointer">
+                  {value.title}
+                </li>
+              </Link>
             ))}
           </ul>
           <div

@@ -3,6 +3,7 @@ import useToogle from "../../store/toogle";
 import { list } from "../../utils/navlist";
 import redLogo from "../../assets/logo_red.svg";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 function FixedNavbar() {
   const setOpenTrue = useToogle((t) => t.setOpenTrue);
@@ -25,22 +26,26 @@ function FixedNavbar() {
   return (
     <>
       <div className={`${isFixed ? "block" : "hidden"}`}>
-        <div className="fixed shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] z-50 top-0 py-2 md:py-4 bg-white px-4 md:px-20 lg:px-40 flex justify-center lg:justify-between w-[100%] ">
-          <ul className="hidden lg:flex gap-10 text-lg  items-center">
+        <div className="fixed shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] z-50 top-0 py-2 md:py-1 bg-white px-4 md:px-20 lg:px-40 flex justify-center lg:justify-between w-[100%] ">
+          <ul className="hidden lg:flex gap-10 text-base  items-center">
             {list.slice(0, 3).map((value) => (
-              <li key={value.id} className="cursor-pointer">
-                {value.title}
-              </li>
+              <Link to={value.link}>
+                <li key={value.id} className="cursor-pointer">
+                  {value.title}
+                </li>
+              </Link>
             ))}
           </ul>
-          <div className="w-[200px]  lg:w-[220px]  h-auto sm:mb-5 lg:mb-0">
-            <img className="img" src={redLogo} alt="" />
+          <div className="w-[200px]  lg:w-[200px] py-2  h-auto sm:mb-5 lg:mb-0">
+            <img className="img object-contain " src={redLogo} alt="" />
           </div>
-          <ul className="hidden lg:flex gap-10 text-lg items-center">
+          <ul className="hidden lg:flex gap-10 text-base items-center">
             {list.slice(3).map((value) => (
-              <li key={value.id} className="cursor-pointer">
-                {value.title}
-              </li>
+              <Link to={value.link}>
+                <li key={value.id} className="cursor-pointer">
+                  {value.title}
+                </li>
+              </Link>
             ))}
           </ul>
           <div

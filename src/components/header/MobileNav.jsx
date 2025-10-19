@@ -1,6 +1,7 @@
 import { FaChevronUp } from "react-icons/fa";
 import useToogle from "../../store/toogle";
 import { list } from "../../utils/navlist";
+import { Link } from "react-router-dom";
 
 function MobileMenu() {
   const isOpen = useToogle((t) => t.isOpen);
@@ -18,14 +19,17 @@ function MobileMenu() {
           </div>
           <ul className="">
             {list.map((value) => (
-              <li
-                key={value.id}
-                className={`border-b ${
-                  value.id === 0 && "bg-[#EE413D] text-white"
-                } border-gray-500 py-4 px-4`}
-              >
-                {value.title}
-              </li>
+              <Link to={value.link}>
+                <li
+                  key={value.id}
+                  onClick={setOpenFalse}
+                  className={`border-b ${
+                    value.id === 0 && "bg-[#EE413D] text-white"
+                  } border-gray-500 py-4 px-4`}
+                >
+                  {value.title}
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
